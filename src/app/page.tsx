@@ -2,12 +2,14 @@
 
 import { PrimaryButton } from "@/components/Button";
 import { Container, GridContainer, GridItem } from "@/components/Container";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Image, Text } from "./style";
 import { IMovies } from "@/@types/Movie";
+import InfoContext from "@/context/InfoContext";
 
 export default function Home() {
   const [movies, setMovies] = useState<IMovies[] | null>(null);
+  const { dataCheckout, setDataCheckout } = useContext(InfoContext);
 
   function getData() {
     fetch("http://localhost:3000/api/movies")
@@ -18,6 +20,10 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
+
+  const handleAddItemCheckout = (item: IMovies) => {
+    setDataCheckout([...dataCheckout, item]);
+  };
 
   return (
     <Container>
@@ -32,7 +38,10 @@ export default function Home() {
                 currency: "BRL",
               })}
             </Text>
-            <PrimaryButton>ADICIONAR AO CARRINHO</PrimaryButton>
+            <PrimaryButton onClick={() => handleAddItemCheckout(movie)}>
+              {dataCheckout.filter((item) => item.id === movie.id).length}{" "}
+              ADICIONAR AO CARRINHO
+            </PrimaryButton>
           </GridItem>
         ))}
       </GridContainer>

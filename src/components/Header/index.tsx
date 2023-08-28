@@ -9,14 +9,19 @@ import {
   SectionContainer,
 } from "./style";
 import { Container } from "../Container";
+import { useContext } from "react";
+import InfoContext from "@/context/InfoContext";
 
 export default function Header() {
+  const { dataCheckout } = useContext(InfoContext);
+
+  console.log(dataCheckout);
   return (
     <Container>
       <HeaderContainer>
         <Title>WeMovies</Title>
         <SectionContainer>
-          <TextIcon>0 itens</TextIcon>
+          <TextIcon>{dataCheckout?.length} itens</TextIcon>
           <BagIconStyled />
         </SectionContainer>
       </HeaderContainer>

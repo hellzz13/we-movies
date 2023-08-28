@@ -11,6 +11,8 @@ export const HeaderContainer = styled.main`
   max-height: 74px;
   width: 100%;
   padding: 18px 10px;
+  /* position: fixed;
+  background-color: #2f2e41; */
 `;
 
 export const Title = styled.h1`
