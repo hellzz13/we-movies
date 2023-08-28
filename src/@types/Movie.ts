@@ -3,4 +3,5 @@ export interface IMovies {
   title: string;
   price: number;
   image: string;
+  count: number;
 }

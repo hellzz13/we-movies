@@ -1,8 +1,6 @@
-import { SVGProps } from "react";
 import styled from "styled-components";
 import BagIconSvg from "../../assets/bagIcon.svg";
-
-interface StyledSVGProps extends SVGProps<SVGSVGElement> {}
+import { StyledSVGProps } from "@/@types/Svg";
 
 export const HeaderContainer = styled.main`
   display: flex;
@@ -11,6 +9,10 @@ export const HeaderContainer = styled.main`
   max-height: 74px;
   width: 100%;
   padding: 18px 10px;
+
+  @media (max-width: 500px) {
+    padding: 18px 0px;
+  }
   /* position: fixed;
   background-color: #2f2e41; */
 `;
@@ -36,8 +38,26 @@ export const TextIcon = styled.p`
   font-weight: 600;
   line-height: normal;
 `;
+export const Text = styled.p`
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const TextConteiner = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
 
 export const BagIconStyled = styled(BagIconSvg)<StyledSVGProps>`
   width: 31px;
   height: 32px;
+  cursor: pointer;
 `;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
   max-width: 960px;
   margin: auto;
+  padding: 0 10px;
 `;
 
 export const GridContainer = styled.div`
@@ -20,4 +21,10 @@ export const GridItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+export const GridSection = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
