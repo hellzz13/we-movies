@@ -16,11 +16,14 @@ import { useContext, useEffect, useState } from "react";
 import { Image, Text } from "./style";
 import { IMovies } from "@/@types/Movie";
 import InfoContext from "@/context/InfoContext";
+import { useHandleItem } from "@/hooks/useHandleItem";
 
 export default function Home() {
   const [movies, setMovies] = useState<IMovies[] | null>(null);
   const { dataCheckout, setDataCheckout, counter, setCounter } =
     useContext(InfoContext);
+
+  const { handleAddItemCheckout } = useHandleItem();
 
   function getData() {
     fetch("http://localhost:3000/api/movies")
@@ -32,25 +35,10 @@ export default function Home() {
     getData();
   }, []);
 
-  const handleAddItemCheckout = (movie: IMovies) => {
-    const foundItem = dataCheckout.find((item) => item.id === movie.id);
-    if (!foundItem) {
-      setCounter(counter + 1);
-      return setDataCheckout([...dataCheckout, { ...movie, count: 1 }]);
-    }
-
-    const oldCounter = foundItem.count;
-    setCounter(counter + 1);
-    return (foundItem.count = oldCounter + 1);
-  };
-
-  console.log("data atualizada", dataCheckout);
-
   return (
     <Container>
       <GridContainer>
         {movies?.map((movie) => {
-          // const countItem = dataCheckout.count || 0;
           const countItem =
             dataCheckout.find((item) => item.id === movie.id)?.count || 0;
 

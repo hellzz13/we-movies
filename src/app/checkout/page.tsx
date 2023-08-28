@@ -14,9 +14,12 @@ import {
 import { useContext } from "react";
 import InfoContext from "@/context/InfoContext";
 import Counter from "@/components/Counter";
+import { useHandleItem } from "@/hooks/useHandleItem";
 
 export default function Page() {
   const { dataCheckout } = useContext(InfoContext);
+
+  const { handleDeleteItemCheckout } = useHandleItem();
 
   return (
     <Container>
@@ -34,11 +37,13 @@ export default function Page() {
                       currency: "BRL",
                     })}
                   </InfoCardText>
-                  <TrashSvgStyled />
+                  <TrashSvgStyled
+                    onClick={() => handleDeleteItemCheckout(movie)}
+                  />
                 </InfoCardCheckout>
 
                 <InfoCardCheckout>
-                  <Counter value={movie.count || 0} />
+                  <Counter value={movie.count || 0} item={movie} />
                 </InfoCardCheckout>
               </InfoCardContainer>
             </InnerCardCheckoutContainer>
