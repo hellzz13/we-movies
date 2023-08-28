@@ -6,7 +6,7 @@ export const PrimaryButton = styled.a`
   padding: 0.5rem 0;
   margin: 0.5rem 1rem;
   height: 3rem;
-  width: 11rem;
+  width: 100%;
   color: white;
   border-radius: 4px;
   justify-content: center;
@@ -14,6 +14,12 @@ export const PrimaryButton = styled.a`
   background: #009edd;
   transition: color 0.2;
   cursor: pointer;
+
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 
   &:hover {
     background: ${shade(0.3, "#009edd")};
