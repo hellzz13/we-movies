@@ -13,8 +13,6 @@ export const HeaderContainer = styled.main`
   @media (max-width: 500px) {
     padding: 18px 0px;
   }
-  /* position: fixed;
-  background-color: #2f2e41; */
 `;
 
 export const Title = styled.h1`

@@ -42,6 +42,4 @@ Por fim, abra [http://localhost:3000](http://localhost:3000/) em seu navegador p
 
 O projeto pode ser acessado no link:
 
-Em contrução...
-
-<!-- [Projeto We Movie]() -->
+[Projeto We Movie](https://we-movies-bice.vercel.app/)
