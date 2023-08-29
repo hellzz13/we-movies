@@ -31,6 +31,14 @@ export const PrimaryButton = styled.a<ButtonProps>`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  width: 235px;
+
+  @media (max-width: 750px) {
+    width: 100%;
+  }
+`;
+
 export const TextButton = styled.p<ButtonPropsText>`
   text-align: center;
   font-size: 12px;

@@ -28,7 +28,12 @@ export const Card = styled.div`
 export const InnerCardCheckoutContainer = styled.div`
   height: 90px;
   display: flex;
-  gap: 16px;
+  gap: 52px;
+  width: 100%;
+
+  @media (max-width: 750px) {
+    gap: 16px;
+  }
 `;
 
 export const CardCheckoutTitle = styled.h2`
@@ -39,23 +44,49 @@ export const CardCheckoutTitle = styled.h2`
   line-height: normal;
 `;
 
+export const AreaValueItem = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 750px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
 export const Image = styled.img`
   width: 64px;
   height: 82px;
 `;
 
+export const InfoSection = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 52px;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    gap: 18px;
+  }
+`;
+
 export const InfoCardCheckout = styled.div`
-  max-width: 231px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 231px;
+  gap: 52px;
+
+  @media (max-width: 750px) {
+    gap: 0px;
+  }
 `;
 export const InfoCardContainer = styled.div`
-  max-width: 231px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 23px;
+  justify-content: center;
 `;
 
 export const InfoCardText = styled.p`
@@ -72,12 +103,36 @@ export const TrashSvgStyled = styled(TrashSvg)<StyledSVGProps>`
 
 export const ValueContainer = styled.div`
   width: 100%;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 52px;
+
+  @media (max-width: 750px) {
+    width: 40%;
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 18px;
+  }
 `;
 
 export const TitleValue = styled.p<ITextProps>`
-  color: #999;
+  display: none;
+
+  @media (max-width: 750px) {
+    color: #999;
+    font-size: ${(props) => props.size}px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+  }
+`;
+
+export const TitleValueTotal = styled.p<ITextProps>`
   font-size: ${(props) => props.size}px;
+  color: #999;
+  text-align: center;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -97,10 +152,20 @@ export const OrderArea = styled.div`
   bottom: 0;
 `;
 
-export const DividerX = styled.hr`
+export const DividerX = styled.div`
   margin: 21px 0;
   width: 100%;
-  fill: #999;
+  background: #999;
+  height: 1px;
+`;
+
+export const TotalWrapper = styled.span`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 export const TotalContainer = styled.div`

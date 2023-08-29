@@ -18,13 +18,21 @@ import {
   DividerX,
   ScrollArea,
   TotalContainer,
+  AreaValueItem,
+  InfoSection,
+  TitleValueTotal,
+  TotalWrapper,
 } from "./style";
 import { useContext } from "react";
 import InfoContext from "@/context/InfoContext";
 import Counter from "@/components/Counter";
 import { useHandleItem } from "@/hooks/useHandleItem";
 import { redirect } from "next/navigation";
-import { PrimaryButton, TextButton } from "@/components/Button";
+import {
+  ButtonContainer,
+  PrimaryButton,
+  TextButton,
+} from "@/components/Button";
 
 export default function Page() {
   const { dataCheckout } = useContext(InfoContext);
@@ -52,28 +60,34 @@ export default function Page() {
                   <Image src={movie.image} alt="capa do filme" />
                   <InfoCardContainer>
                     <InfoCardCheckout>
-                      <CardCheckoutTitle>{movie.title}</CardCheckoutTitle>
-                      <InfoCardText>
-                        {movie.price.toLocaleString("pt-br", {
-                          style: "currency",
-                          currency: "BRL",
-                        })}
-                      </InfoCardText>
-                      <TrashSvgStyled
-                        onClick={() => handleDeleteItemCheckout(movie)}
-                      />
-                    </InfoCardCheckout>
-
-                    <InfoCardCheckout>
-                      <Counter value={movie.count || 0} item={movie} />
+                      <InfoSection>
+                        <AreaValueItem>
+                          <CardCheckoutTitle>{movie.title}</CardCheckoutTitle>
+                          <InfoCardText>
+                            {movie.price.toLocaleString("pt-br", {
+                              style: "currency",
+                              currency: "BRL",
+                            })}
+                          </InfoCardText>
+                        </AreaValueItem>
+                        <Counter value={movie.count || 0} item={movie} />
+                      </InfoSection>
                       <ValueContainer>
-                        <TitleValue size="12">SUBTOTAL</TitleValue>
-                        <Value size="16">
-                          {(movie.price * movie.count).toLocaleString("pt-br", {
-                            style: "currency",
-                            currency: "BRL",
-                          })}
-                        </Value>
+                        <div>
+                          <TitleValue size="12">SUBTOTAL</TitleValue>
+                          <Value size="16">
+                            {(movie.price * movie.count).toLocaleString(
+                              "pt-br",
+                              {
+                                style: "currency",
+                                currency: "BRL",
+                              }
+                            )}
+                          </Value>
+                        </div>
+                        <TrashSvgStyled
+                          onClick={() => handleDeleteItemCheckout(movie)}
+                        />
                       </ValueContainer>
                     </InfoCardCheckout>
                   </InfoCardContainer>
@@ -84,18 +98,23 @@ export default function Page() {
         </ScrollArea>
         <OrderArea>
           <DividerX />
-          <TotalContainer>
-            <TitleValue size="14">Total</TitleValue>
-            <Value size="24">
-              {totalValue.toLocaleString("pt-br", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </Value>
-          </TotalContainer>
-          <PrimaryButton>
-            <TextButton fontWeight={700}>FINALIZAR PEDIDO</TextButton>
-          </PrimaryButton>
+
+          <TotalWrapper>
+            <TotalContainer>
+              <TitleValueTotal size="14">TOTAL</TitleValueTotal>
+              <Value size="24">
+                {totalValue.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </Value>
+            </TotalContainer>
+            <ButtonContainer>
+              <PrimaryButton>
+                <TextButton fontWeight={700}>FINALIZAR PEDIDO</TextButton>
+              </PrimaryButton>
+            </ButtonContainer>
+          </TotalWrapper>
         </OrderArea>
       </CardArea>
     </Container>
