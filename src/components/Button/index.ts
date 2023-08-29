@@ -15,7 +15,7 @@ interface ButtonProps {
 export const PrimaryButton = styled.a<ButtonProps>`
   display: flex;
   padding: 0.5rem 0;
-  margin: 0.5rem 1rem;
+  margin: 0.5rem 0;
   height: 3rem;
   width: 100%;
   color: white;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface StyledText {
-  money?: boolean;
+  size: string;
 }
 
 export const Image = styled.img`
@@ -13,7 +13,7 @@ export const Text = styled.p<StyledText>`
   color: #333;
   background-color: "#fff";
   text-align: center;
-  font-size: ${(props) => (props.money ? "16px" : "12px")};
+  font-size: ${(props) => props.size + "px"};
   font-style: normal;
   font-weight: 700;
   line-height: normal;

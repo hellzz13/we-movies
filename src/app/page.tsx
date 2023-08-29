@@ -46,8 +46,8 @@ export default function Home() {
             <GridItem key={movie.id}>
               <GridSection>
                 <Image src={movie.image} alt="capa do filme" />
-                <Text>{movie.title}</Text>
-                <Text money>
+                <Text size="12">{movie.title}</Text>
+                <Text size="16">
                   {movie.price.toLocaleString("pt-br", {
                     style: "currency",
                     currency: "BRL",
@@ -55,7 +55,7 @@ export default function Home() {
                 </Text>
               </GridSection>
               <PrimaryButton
-                isActive={!!countItem}
+                isActive={!!countItem || false}
                 onClick={() => handleAddItemCheckout(movie)}
               >
                 <SectionButton>

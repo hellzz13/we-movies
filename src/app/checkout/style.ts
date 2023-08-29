@@ -3,12 +3,24 @@ import styled from "styled-components";
 
 import TrashSvg from "../../assets/trashSvg.svg";
 
-export const CardContainerCheckout = styled.div`
+interface ITextProps {
+  size: string;
+}
+
+export const CardArea = styled.div`
   background: #fff;
+  border-radius: 4px;
+  height: 85vh;
+  position: relative;
+`;
+export const ScrollArea = styled.div`
+  height: 80%;
+  overflow-y: auto;
+`;
+
+export const Card = styled.div`
   width: 100%;
   display: flex;
-  border-radius: 4px;
-  flex: 1;
   padding: 16px;
   gap: 21px;
 `;
@@ -56,4 +68,44 @@ export const InfoCardText = styled.p`
 
 export const TrashSvgStyled = styled(TrashSvg)<StyledSVGProps>`
   cursor: pointer;
+`;
+
+export const ValueContainer = styled.div`
+  width: 100%;
+  text-align: right;
+`;
+
+export const TitleValue = styled.p<ITextProps>`
+  color: #999;
+  font-size: ${(props) => props.size}px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+export const Value = styled.p<ITextProps>`
+  color: #2f2e41;
+  font-size: ${(props) => props.size}px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const OrderArea = styled.div`
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  bottom: 0;
+`;
+
+export const DividerX = styled.hr`
+  margin: 21px 0;
+  width: 100%;
+  fill: #999;
+`;
+
+export const TotalContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: right;
 `;
