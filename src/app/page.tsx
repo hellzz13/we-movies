@@ -17,6 +17,7 @@ import { Image, Text } from "./style";
 import { IMovies } from "@/@types/Movie";
 import InfoContext from "@/context/InfoContext";
 import { useHandleItem } from "@/hooks/useHandleItem";
+import Loading from "@/components/Loading";
 
 export default function Home() {
   const [movies, setMovies] = useState<IMovies[] | null>(null);
@@ -34,6 +35,10 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
+
+  if (!movies) {
+    return <Loading />;
+  }
 
   return (
     <Container>

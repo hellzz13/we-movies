@@ -10,19 +10,46 @@ interface ITextProps {
 export const CardArea = styled.div`
   background: #fff;
   border-radius: 4px;
-  height: 85vh;
+
   position: relative;
+  @media (max-width: 750px) {
+    height: 85vh;
+  }
 `;
+
+export const TitleTableCard = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
+`;
+
+export const TextTitleTableCard = styled.div`
+  color: #999;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
 export const ScrollArea = styled.div`
-  height: 80%;
+  height: 73%;
   overflow-y: auto;
 `;
 
 export const Card = styled.div`
   width: 100%;
   display: flex;
-  padding: 16px;
+  padding: 24px;
   gap: 21px;
+
+  @media (max-width: 760px) {
+    padding: 16px;
+  }
 `;
 
 export const InnerCardCheckoutContainer = styled.div`
@@ -31,7 +58,7 @@ export const InnerCardCheckoutContainer = styled.div`
   gap: 52px;
   width: 100%;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     gap: 16px;
   }
 `;
@@ -49,15 +76,20 @@ export const AreaValueItem = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     flex-direction: row;
     justify-content: space-between;
   }
 `;
 
 export const Image = styled.img`
-  width: 64px;
-  height: 82px;
+  width: 89px;
+  height: 114px;
+
+  @media (max-width: 750px) {
+    width: 64px;
+    height: 82px;
+  }
 `;
 
 export const InfoSection = styled.div`
@@ -66,7 +98,7 @@ export const InfoSection = styled.div`
   flex-direction: row;
   gap: 52px;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     flex-direction: column;
     gap: 18px;
   }
@@ -79,7 +111,7 @@ export const InfoCardCheckout = styled.div`
   align-items: center;
   gap: 52px;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     gap: 0px;
   }
 `;
@@ -108,7 +140,7 @@ export const ValueContainer = styled.div`
   justify-content: space-between;
   gap: 52px;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     width: 40%;
     flex-direction: column-reverse;
     align-items: end;
@@ -119,7 +151,7 @@ export const ValueContainer = styled.div`
 export const TitleValue = styled.p<ITextProps>`
   display: none;
 
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     color: #999;
     font-size: ${(props) => props.size}px;
     font-style: normal;
@@ -150,6 +182,7 @@ export const OrderArea = styled.div`
   padding: 16px;
   width: 100%;
   bottom: 0;
+  background-color: #fff;
 `;
 
 export const DividerX = styled.div`
@@ -163,7 +196,7 @@ export const TotalWrapper = styled.span`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  @media (max-width: 750px) {
+  @media (max-width: 760px) {
     flex-direction: column;
   }
 `;
@@ -173,4 +206,14 @@ export const TotalContainer = styled.div`
   align-items: center;
   gap: 30px;
   justify-content: right;
+`;
+
+export const Spacer = styled.div`
+  height: 140px;
+  margin-bottom: 24px;
+
+  @media (max-width: 750px) {
+    height: 0px;
+    margin-bottom: 0px;
+  }
 `;

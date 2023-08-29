@@ -7,6 +7,8 @@ type InfoProps = {
   setDataCheckout: (state: IMovies[]) => void;
   counter: number;
   setCounter: (state: number) => void;
+  loading: boolean;
+  setLoading: (state: boolean) => void;
 };
 
 const DEFAULT_VALUE = {
@@ -14,6 +16,8 @@ const DEFAULT_VALUE = {
   setDataCheckout: () => {},
   counter: 0,
   setCounter: () => {},
+  loading: false,
+  setLoading: () => {},
 };
 
 const InfoContext = createContext<InfoProps>(DEFAULT_VALUE);
@@ -27,6 +31,7 @@ const InfoContextProvider: React.FC<IProvider> = ({ children }) => {
     DEFAULT_VALUE.dataCheckout
   );
   const [counter, setCounter] = useState(DEFAULT_VALUE.counter);
+  const [loading, setLoading] = useState(DEFAULT_VALUE.loading);
 
   return (
     <InfoContext.Provider
@@ -35,6 +40,8 @@ const InfoContextProvider: React.FC<IProvider> = ({ children }) => {
         setDataCheckout,
         counter,
         setCounter,
+        loading,
+        setLoading,
       }}
     >
       {children}
