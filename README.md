@@ -26,9 +26,10 @@ npm run dev
 
 Por fim, abra [http://localhost:3000](http://localhost:3000/) em seu navegador para visualizar o projeto.
 
-## **Proximos passos**
+## **Proximos passos e melhorias**
 
-...
+- Seria necessário criar theme para aplicação para poder utilizar melhor as cores que se repetem durante a aplicação. Para caso a aplicação cresça fique mais facil de manter.
+  ...
 
 ## **Tools and libs:**
 
