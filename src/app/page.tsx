@@ -18,6 +18,7 @@ import { IMovies } from "@/@types/Movie";
 import InfoContext from "@/context/InfoContext";
 import { useHandleItem } from "@/hooks/useHandleItem";
 import Loading from "@/components/Loading";
+import { api } from "./api";
 
 export default function Home() {
   const [movies, setMovies] = useState<IMovies[] | null>(null);
@@ -27,7 +28,7 @@ export default function Home() {
   const { handleAddItemCheckout } = useHandleItem();
 
   function getData() {
-    fetch("http://localhost:3000/api/movies")
+    fetch(`${api}/movies`)
       .then((resp) => resp.json())
       .then((data) => setMovies(data.products));
   }
