@@ -28,7 +28,7 @@ export default function Home() {
   const { handleAddItemCheckout } = useHandleItem();
 
   function getData() {
-    fetch(`${api}movies`)
+    fetch(`${api}api/movies`)
       .then((resp) => resp.json())
       .then((data) => setMovies(data.products));
   }
